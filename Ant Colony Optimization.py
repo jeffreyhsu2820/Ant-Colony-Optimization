@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import random
@@ -52,10 +52,8 @@ def main(R, N, n, v, t, p, objective_function, the_permissible_values, best_wors
         if len(set(new))==1:
             break
         for i in range(len(initial)):
-            if i==index[xbest_index]:
-                pheromone[index[xbest_index]]+=(t*count*abs(xbest))/abs(xworst)
-            else:
-                pheromone[i]=(1-p)*pheromone[i]
+            pheromone[i]=(1-p)*pheromone[i]
+        pheromone[index[xbest_index]]+=(t*count*abs(xbest))/abs(xworst)                
     return xbest, initial[index[xbest_index]]
 
 R=[0,3]                   # the range of x
